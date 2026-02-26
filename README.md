@@ -71,6 +71,20 @@ Densities are rounded to four decimal places. All chromosomes from `chrom.sizes`
 - The script currently treats `chrmt` (mitochondrial) as dropped since it isn't listed in `chrom.sizes`.
 - Visualizations are saved automatically; feel free to modify or extend plotting code in `process_gff3.py`.
 
+## Toy dataset for testing
+
+You can quickly create a small GFF3 containing only two chromosomes (e.g. `chrI` and `chrII`) to exercise the parser. The following one-liner extracts the header plus features for those seqids and writes a compressed toy file:
+
+```bash
+zcat data/saccharomyces_cerevisiae.gff.gz \
+    | awk '/^#/ || $1=="chrI" || $1=="chrII"' \
+    | gzip > data/toy.gff.gz
+```
+
+An optional `head` can be inserted if you want to limit the number of lines (for example to the first 100).
+
+You can then point `process_gff3.py` at `data/toy.gff.gz` instead of the full file to validate behaviour.
+
 ## Manual
 
 1. Ensure data files are in place under `data/`.
