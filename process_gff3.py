@@ -1,5 +1,30 @@
 #!/usr/bin/env python3
 """
+Main objective: Analyze GC content distribution of the specified file and produce both a table and histogram as output. 
+
+ [Environment]: Write python code that runs in the [bch709_vibe_coding] conda environment. Micromamba is mapped to conda. 
+[Installed packages] are available.
+
+**Input specification:**
+- File: mrna.fa.gz 
+- Structure: This is a fasta file. First item in header is accession, fifth item in header is length (len)
+- Additional inputs: sacCer3.fa.gz (for reference)
+
+**Output 1 — Table:**
+- Filename: please save this table in the results folder and name the file: “mrna_metrics.tsv”
+- Columns: Accession, length, gc_content. Sort the values by gc_content descending 
+- Decimal places: use 4 decimal places
+- Sorting: Sort the values in this table by gc_content descending
+
+**Output 2 — Plot:**
+- Filename: save this plot in the results folder and name the file “gc_content_distribution.png
+- Size: 1600x900 px, dpi: 200
+- Colors: Please use blue for the color of the bars in the histogram and red for the mean vertical dashed lines and orange for the median vertical dashed line.
+- Axes/labels/legend: This is a histogram with density curve overlays. Display the mean and median values.   Label the x-axis “GC Content” and have numbers ranging from 0-1 on the x-axis. 
+
+Please include this exact prompt as a comment at the top of the python script.
+
+
 Process GFF3 file to count genes, exons, tRNA, and snoRNA per chromosome.
 Output feature counts and densities per Mb.
 """
